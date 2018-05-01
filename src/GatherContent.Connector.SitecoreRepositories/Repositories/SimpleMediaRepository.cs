@@ -26,7 +26,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
         {
             var path = Sitecore.Configuration.Settings.GetSetting("GatherContent.MediaLibrary.MainFolder");
             var dealsPath = Sitecore.Configuration.Settings.GetSetting("GatherContent.MediaLibrary.DealsFolder");
-            var eventsPath = Sitecore.Configuration.Settings.GetSetting("GatherContent.MediaLibrary.EventsFolder");
+            var eventsPath = Sitecore.Configuration.Settings.GetSetting("GatherContent.MediaLibrary.EventFolder");
             if (!string.IsNullOrWhiteSpace(path))
             {
                 MediaFolderRoot = path.TrimEnd('/');
@@ -55,7 +55,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
             }
         }
 
-        public Item UploadFile(string targetPath, File fileInfo)
+        public Item UploadFile(string targetPath, File fileInfo, string altText)
         {
             string uri = fileInfo.Url.StartsWith("http") ? fileInfo.Url : "https://gathercontent.s3.amazonaws.com/" + fileInfo.Url;
 
@@ -79,7 +79,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
 
                 if (memoryStream.Length > 0)
                 {
-                    var media = CreateMedia(targetPath, fileInfo, extension, memoryStream);
+                    var media = CreateMedia(targetPath, fileInfo, extension, memoryStream, altText);
                     return media;
                 }
 
@@ -107,7 +107,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                     ? string.Format(DealsFolderRoot + "/{0}/", ItemUtil.ProposeValidItemName(item.Title))
                     : string.Format(DealsFolderRoot + "/{0}/{1}/", ItemUtil.ProposeValidItemName(item.Title), ItemUtil.ProposeValidItemName(cmsField.TemplateField.FieldName));
 
-                SetDatasourcePath(createdItem, cmsField.TemplateField.FieldId, MediaFolderRoot);
+                SetDatasourcePath(createdItem, cmsField.TemplateField.FieldId, DealsFolderRoot);
             }
             else if (string.Equals(item.Template.TemplateName.ToLower(), "event"))
             {
@@ -115,7 +115,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                     ? string.Format(EventsFolderRoot + "/{0}/", ItemUtil.ProposeValidItemName(item.Title))
                     : string.Format(EventsFolderRoot + "/{0}/{1}/", ItemUtil.ProposeValidItemName(item.Title), ItemUtil.ProposeValidItemName(cmsField.TemplateField.FieldName));
 
-                SetDatasourcePath(createdItem, cmsField.TemplateField.FieldId, MediaFolderRoot);
+                SetDatasourcePath(createdItem, cmsField.TemplateField.FieldId, EventsFolderRoot);
             }
             else
             {
@@ -131,7 +131,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
             return path;
         }
 
-        protected virtual Item CreateMedia(string rootPath, File mediaFile, string extension, Stream mediaStream)
+        protected virtual Item CreateMedia(string rootPath, File mediaFile, string extension, Stream mediaStream, string altText)
         {
             using (new SecurityDisabler())
             {
@@ -157,7 +157,8 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                     IncludeExtensionInItemName = false,
                     KeepExisting = true,
                     Versioned = false,
-                    Destination = string.Concat(rootPath, "/", validItemName)
+                    Destination = string.Concat(rootPath, "/", validItemName),
+                    AlternateText = altText
                 };
 
                 var previewImgItem = MediaManager.Creator.CreateFromStream(mediaStream, validItemName + "." + extension, mediaOptions);
