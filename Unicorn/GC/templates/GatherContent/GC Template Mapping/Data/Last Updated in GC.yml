@@ -1,0 +1,21 @@
+﻿---
+ID: "b2df7a00-492d-447d-b32a-c631a8a9f745"
+Parent: "ee9cd9d0-3352-457b-ba6a-160cc0145389"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/GatherContent/GC Template Mapping/Data/Last Updated in GC
+DB: master
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: "Single-Line Text"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20151118T091239Z

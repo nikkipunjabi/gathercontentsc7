@@ -1,0 +1,26 @@
+﻿---
+ID: "f581e7f9-3530-4c00-b18e-2626f92fef77"
+Parent: "70440b42-9fb2-4a89-9469-ca8b1d42859d"
+Template: "24fe0f34-5b16-44ed-a845-d6c502f08aa9"
+Path: /sitecore/system/Modules/GatherContent/Energy Company redesign/Mappings/Employee bio example Template/Job title el1415295442113
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160407T140751Z
+    - ID: "4154c0af-ce1f-4263-b0f4-471573648863"
+      Hint: GC Field
+      Value: Job title
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
+    - ID: "a7702af3-73e8-4212-8372-611169a2cfc8"
+      Hint: Sitecore Field
+      Value: "{18A37576-DF8C-43E6-B312-74F136A2CAB9}"
+    - ID: "c50750f9-3960-493c-867a-5e1c8447eade"
+      Hint: GC Field Id
+      Value: el1415295442113

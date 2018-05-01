@@ -1,0 +1,21 @@
+﻿---
+ID: "a7702af3-73e8-4212-8372-611169a2cfc8"
+Parent: "0ecd7d3f-68ec-4b34-b85f-86f9927fd242"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/GatherContent/GC Field Mapping/Data/Sitecore Field
+DB: master
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: Droptree
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20151111T115451Z

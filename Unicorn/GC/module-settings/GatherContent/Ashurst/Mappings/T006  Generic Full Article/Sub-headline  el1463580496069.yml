@@ -1,0 +1,26 @@
+﻿---
+ID: "86d67939-4e74-4f74-b7cf-1de1aa690f02"
+Parent: "157e135d-c847-4261-9ce5-7e8006d902d4"
+Template: "24fe0f34-5b16-44ed-a845-d6c502f08aa9"
+Path: "/sitecore/system/Modules/GatherContent/Ashurst/Mappings/T006  Generic Full Article/Sub-headline  el1463580496069"
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160610T091031Z
+    - ID: "4154c0af-ce1f-4263-b0f4-471573648863"
+      Hint: GC Field
+      Value: "Sub-headline "
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
+    - ID: "a7702af3-73e8-4212-8372-611169a2cfc8"
+      Hint: Sitecore Field
+      Value: "{6B042E75-7785-419F-9A2B-D41CE2BFF4C9}"
+    - ID: "c50750f9-3960-493c-867a-5e1c8447eade"
+      Hint: GC Field Id
+      Value: el1463580496069

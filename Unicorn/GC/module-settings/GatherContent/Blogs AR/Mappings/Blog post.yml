@@ -1,0 +1,35 @@
+﻿---
+ID: "ec874eaa-a0a4-400a-b145-3c4aca7d24c6"
+Parent: "8c98156f-9791-4161-afa9-15ce9d9e66a9"
+Template: "f47bb0e8-b2bb-4415-9d34-77d99d85bf2a"
+Path: /sitecore/system/Modules/GatherContent/Blogs AR/Mappings/Blog post
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160325T142538Z
+    - ID: "317f365b-a80b-4e96-bdbb-80ce16525e3e"
+      Hint: Sitecore Template
+      Value: "{2BAD1CE3-DADB-4637-BE84-8C8A23A05D00}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
+    - ID: "b2df7a00-492d-447d-b32a-c631a8a9f745"
+      Hint: Last Updated in GC
+      Value: 1458911731
+    - ID: "d32682ec-380b-4473-b7ff-68560fae5a2e"
+      Hint: GC Template
+      Value: 304417
+    - ID: "decbcb4c-4748-4ec1-a1b8-1776de7079c6"
+      Hint: Template mapping title
+      Value: Blog AR
+    - ID: "e6518a14-3fd3-4eee-8b5b-69f77cae648f"
+      Hint: Last Mapped Date
+      Value: 20160325T172538
+    - ID: "f2516dc4-527a-4ed3-8d94-4385381ce4af"
+      Hint: Default Location
+      Value: "{0DE95AE4-41AB-4D01-9EB0-67441B7C2450}"

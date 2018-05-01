@@ -1,0 +1,17 @@
+﻿---
+ID: "9c6df567-5286-4523-b135-76bba9f3aac5"
+Parent: "c25ac540-508e-4985-a0ff-9c361a86b409"
+Template: "5342d6d1-0acf-4fe6-9aa2-613edddbeed0"
+Path: /sitecore/system/Modules/GatherContent/Energy Company redesign/Mappings
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160314T125759Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin

@@ -1,0 +1,23 @@
+﻿---
+ID: "4ce8fb38-e9a7-45d5-b01b-192f709a25d7"
+Parent: "b99d89bd-56ab-4f41-bb02-121d116e5145"
+Template: "ac94d4a6-a684-44ea-a97a-5a49128db470"
+Path: /sitecore/system/Modules/GatherContent/Blogs AR
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160325T142538Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
+    - ID: "acb8a3ce-0c30-4e22-bc29-f0577a5f4c5b"
+      Hint: Id
+      Value: 71005
+    - ID: "f661dc83-81ce-40e0-b5f5-d53adbfb3e8d"
+      Hint: Name
+      Value: Blogs AR

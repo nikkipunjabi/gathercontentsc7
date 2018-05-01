@@ -1,0 +1,26 @@
+﻿---
+ID: "13b594e8-b664-4c5f-ba7f-e076bd79f18f"
+Parent: "23c999d1-ecf0-47e8-8b6e-ac352288084a"
+Template: "24fe0f34-5b16-44ed-a845-d6c502f08aa9"
+Path: /sitecore/system/Modules/GatherContent/Energy Company redesign/Mappings/Services item example Template/Name of the service el1415295758003
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160324T110752Z
+    - ID: "4154c0af-ce1f-4263-b0f4-471573648863"
+      Hint: GC Field
+      Value: Name of the service
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
+    - ID: "a7702af3-73e8-4212-8372-611169a2cfc8"
+      Hint: Sitecore Field
+      Value: "{994783D0-BA75-47A5-89DB-F15A217494C8}"
+    - ID: "c50750f9-3960-493c-867a-5e1c8447eade"
+      Hint: GC Field Id
+      Value: el1415295758003

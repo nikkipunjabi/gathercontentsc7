@@ -1,0 +1,36 @@
+﻿---
+ID: "b99d89bd-56ab-4f41-bb02-121d116e5145"
+Parent: "08477468-d438-43d4-9d6a-6d84a611971c"
+Template: "f8b571ee-59a4-4ea5-9b32-9c57720f87ed"
+Path: /sitecore/system/Modules/GatherContent
+DB: master
+SharedFields:
+- ID: "0c894aab-962b-4a84-b923-cb24b05e60d2"
+  Hint: __Ribbon
+  Value: "{E9690D91-E157-4AB0-8BBD-0AF2098A6CE5}"
+- ID: "387209aa-9f43-433c-bead-7e04be1883b8"
+  Hint: Platform URL
+  Value: "https://brimit.gathercontent.com"
+- ID: "95c822ae-dcd6-4895-b3e8-6ad89c90ba5b"
+  Hint: Account Owner Email Address
+  Value: az@meliodex.com
+- ID: "c23db185-c22a-475c-92ac-fff33804a8e4"
+  Hint: API Key
+  Value: "2891aa1d-daa0-4a87-ae4a-c78f536652ae"
+- ID: "d8aab2e6-567f-4ffa-81fd-7141252c1704"
+  Hint: DropTree Home Node
+  Value: "{0DE95AE4-41AB-4D01-9EB0-67441B7C2450}"
+- ID: "f5edae38-0843-42fc-ba33-dc19d481953b"
+  Hint: Templates Root Folder
+  Value: "{DDC3C241-726E-40F9-BEEF-02BF78B66DA8}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20151111T115737Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin

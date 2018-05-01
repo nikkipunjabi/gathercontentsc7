@@ -1,0 +1,17 @@
+﻿---
+ID: "93f8b7e1-6720-4c3e-a729-5b9c2065df1b"
+Parent: "8f38aceb-3587-4089-9713-ea2980227a8c"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/GatherContent/GC Linked Item/GC Link
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20151111T115544Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin

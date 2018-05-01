@@ -1,0 +1,83 @@
+﻿<script src="/sitecore modules/shell/GatherContent/js/jquery_2.1.1.min.js"></script>
+<script src="/sitecore/shell/Controls/Lib/Prototype/prototype.js"></script>
+<script src="/sitecore/shell/Controls/Browser.js"></script>
+<script src="/sitecore/shell/Controls/Sitecore.js"></script>
+<script src="/sitecore modules/shell/GatherContent/js/GatherContent.js"></script>
+<script src="/sitecore modules/shell/GatherContent/js/knockout-3.4.0.js"></script>
+<script src="/sitecore modules/shell/GatherContent/AddTemplate/AddTemplate.js"></script>
+<link href="/sitecore modules/shell/GatherContent/css/GatherContent.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        ko.applyBindings(new ViewModel());
+    });
+</script>
+<script type="text/JavaScript" language="javascript">
+    if (!window.scSitecore) {
+        scSitecore = function () { };
+    }
+    scSitecore.prototype.Settings = {};
+    scSitecore.prototype.Settings.SessionTimeout = 1200000;
+</script>
+
+<div class="gathercontent-dialog add_template">
+
+    <!-- ko if: IsError -->
+    <h1 data-bind="text: ErrorText"></h1>
+    <!-- /ko -->
+
+    <div data-bind="ifnot: IsError">
+
+        <p>You can map templates from multiple GatherContent projects into Sitecore.</p>
+
+        <div class="template_list_title">
+            <h2>GatherContent Project</h2>
+            <h2>Project Templates</h2>
+        </div>
+        <div class="carousel">
+            <a href="#" class='btn_prev'></a>
+            <a href="#" class='btn_next'></a>
+            <ul data-bind="foreach: { data: Projects }" class="template_list">
+
+                <!-- ko if: $index()===0 -->
+                <li class="project-item active">
+                    <span data-bind="text: ProjectName"> </span>
+                    <ul data-bind="foreach: { data: Templates, as: 'item' }" class="template_items">
+                        <li>
+                            <div>
+                                <input type="checkbox" data-bind="value:item.TemplateId, checked: $root.Selected, attr: { id: item.TemplateName}" />
+                                <label data-bind="text: item.TemplateName, attr: {for: item.TemplateName}" />
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- /ko -->
+                <!-- ko if: $index()!==0 -->
+                <li class="project-item">
+                    <span data-bind="text: ProjectName"> </span>
+                    <ul data-bind="foreach: { data: Templates, as: 'item' }" class="template_items">
+                        <li>
+                            <div>
+                                <input type="checkbox" data-bind="value:item.TemplateId, checked: $root.Selected, attr: { id: item.TemplateName}" />
+                                <label data-bind="text: item.TemplateName, attr: {for: item.TemplateName}" />
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- /ko -->
+            </ul>
+        </div>
+        <div data-bind="text: Selected().length" style="display: inline-block;padding-right: 5px; padding-bottom: 20px;padding-top: 10px"></div><span>templates selected</span>
+        <div class="footer_btn">
+            <input class="mappings-btn " id="Select-template" type="button" value="Select" data-bind="click: addTemplateMapping" />
+            <input class="mappings-btn " id="Close-dialog" type="button" value="Close" data-bind="click: closeDialog" />
+            <h2>
+                Remember, you don't need to map all of your templates at once. You can update and add new templates later.
+            </h2>
+        </div>
+    </div>
+    <div class="help-link">
+        <a href="mailto:support@gathercontent.com">Need help?</a>
+    </div>
+</div>
+<div class="preloader"></div>

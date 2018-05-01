@@ -1,0 +1,226 @@
+/*top*/
+
+.kgTopPanel {
+    background: #5e5e5e;
+    height: 40px !important
+}
+.kgHeaderText {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12.8px;
+    margin: 11px 0;
+    padding: 1px 5px;
+    border-left: 1px solid #fff;
+    color: #fff;
+}
+.kgTopPanel .kgHeaderCell:first-child .kgHeaderText {
+    border-left: 0;
+}
+
+.kgHeaderCell {
+    border: 0;
+}
+
+/*end top*/
+
+.hide {
+    display: none;
+}
+.mapping_heading {
+    width: 40%;
+}
+.mapping_heading .clear {
+    height: 30px;
+    margin-bottom: 10px;
+}
+.tabs_mapping {
+    max-height: 66% !important;
+}
+.notvalid {
+    border: 1px solid red!important;
+}
+input {
+    outline: none;
+}
+.footer_glued {
+    padding-bottom: 90px;
+    position: relative;
+}
+.footer_glued footer {
+    position: absolute;
+    bottom: 0;
+    background: #ffffff;
+    left: 0;
+    right: 0;
+    max-height: 19%;
+    padding-bottom: 14px;
+}
+.footer_btn p {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+.footer_glued footer > *{
+    display: inline-block;
+    vertical-align: middle;
+}
+.footer_glued footer * {
+    position: static;
+}
+.help-link {
+    padding-right: 0;
+    float: right;
+}
+.mapping_tabs_wrapper .tabs_mapping .row_mapping_tab input, .tabs_mapping .row_mapping_tab .custom_selected {
+    margin-bottom: 10px;
+}
+.mapping_heading .sitecore-template-select {
+    width: 100%;
+    display: block;
+}
+.sitecore-template-select {
+    width: 100%;
+}
+.mapping_heading .heading{
+    border-bottom: 1px solid #808080;
+}
+.kgHeaderText {
+    padding-right: 30px;
+}
+input.block {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+.fields-mapping-padding {
+    margin: 10px 0;
+}
+button.kgPagerButton {
+    border-radius: 0;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    box-shadow: inset 1px 1px 2px #BBB;
+    cursor: pointer;
+    outline: none;
+}
+button.kgPagerButton:hover {
+    box-shadow: 1px 1px 4px #4A4949;
+}
+.kgSortButtonDown {
+    right: 7px;
+    left: auto;
+    top: 48%;
+    border-color: rgb(255, 255, 255) transparent;
+    border-width: 7px 7px 0px;
+}
+.kgSortButtonUp {
+    right: 7px;
+    left: auto;
+    top: 44%;
+    border-color:   rgb(255, 255, 255) transparent;
+    border-width: 0 7px 7px 7px;
+}
+.kgTotalSelectContainer {
+    margin-top: 14px;
+}
+.kglabel {
+    margin-top: 6px !important;
+}
+.kgPagerContainer select {
+    width: 50px !important;
+    -webkit-appearance: none;
+    background-image: url('/sitecore modules/shell/gathercontent/img/arrow_select.png');
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    -webkit-background-size: 95%;
+    background-size: 8px;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none !important;
+    display: block;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid #808080;
+    background-color: #fff;
+    height: 30px;
+    color: #808080;
+    vertical-align: middle;
+    font-weight: 500;
+    padding-left: 5px;
+}
+.kgPagerCurrent {
+    background-color: transparent;
+    text-align: center;
+    outline: none;
+    width: 50px !important;
+    margin-top: 1px;
+    padding: 0px 4px 0 4px !important;
+    border: 0
+}
+.kgHeaderCell:last-child {
+    border-right:0;
+}
+.manage {
+    text-align: center;
+    padding: 5px 0;
+}
+.edit {
+    padding: 7px;
+}
+.edit a {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: #00B6FF;
+}
+.kgCell {
+    box-sizing: border-box;
+}
+.kgCell:first-child {
+    border-left: 1px solid rgb(212, 212, 212);
+}
+.kgViewport {
+    outline: none;
+}
+.gridStyle {
+    border: 0;
+}
+.kgRow {
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+.kgCellText {
+   line-height: 19px;
+}
+
+/*footer*/
+.kgFooterPanel {
+    background-color: transparent;
+}
+
+input[type="button"] {
+    border: none;
+    padding: 10px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #e4e3e3;
+}
+
+input[type="button"]:hover {
+    background-color:#f0eeee;
+}
+.kgPagerButton[disabled] {
+    opacity: 0.5;
+    cursor: default;
+}
+.kgPagerButton[disabled]:hover {
+    box-shadow: inset 1px 1px 2px #BBB;
+}
+.koGrid{
+    background-color: transparent;
+}
+.kgViewport{
+    background-color: rgb(253, 253, 253);
+}

@@ -1,0 +1,133 @@
+﻿<link href="/sitecore modules/shell/GatherContent/css/GatherContent.css" rel="stylesheet" />
+<link href="/sitecore modules/shell/GatherContent/css/KoGrid.css" rel="stylesheet" />
+<link href="/sitecore modules/shell/GatherContent/Update/Update.css" rel="stylesheet" />
+<link href="/sitecore modules/shell/GatherContent/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/js/jquery_2.1.1.min.js"></script>
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/js/moment.min.js"></script>
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/js/knockout-3.4.0.js"></script>
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/js/koGrid-2.1.1.js"></script>
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/js/GatherContent.js"></script>
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/Update/Update.js"></script>
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/css/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    jQuery.noConflict();
+    jQuery(document).ready(function () {
+        ko.applyBindings(new UpdateManager());
+    });
+</script>
+
+<div data-bind="visible: getMode(1)" class="gathercontent-import">
+    <div>
+        <div class="filter_wrapper">
+            <div class="filter_wrapper_import">
+                <div class="title_filter">FILTER</div>
+                <select class="custom_select" data-bind="options: statuses, optionsText: 'Name', optionsValue: 'Id', value: statusFilter, optionsCaption: 'STATUS', event:{ change: $root.filter }"></select>
+                <select class="custom_select" style="width: 250px;" data-bind="options: projects, optionsText: 'Name', optionsValue: 'Name', value: projectFilter, optionsCaption: 'GATHER CONTENT PROJECT', event:{ change: $root.filter}"></select>
+                <select class="custom_select" style="width: 250px;" data-bind="options: templates, optionsText: 'Name', optionsValue: 'Id', value: templateFilter, optionsCaption: 'GATHER CONTENT TEMPLATE', event:{ change: $root.filter }"></select>
+            </div>
+            <div class="search_filter">
+                <input placeholder="FILTER BY ITEM NAME (SEARCH)" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="update-grid" data-bind="koGrid: gridOptions"></div>
+
+        <div class="footer_btn">
+            <div>
+                <input type="button" class="mappings-btn" value="Next>" data-bind="click: buttonClick.bind($data, 2)" />
+                <div data-bind="text: errorText" class="warning-message"></div>
+            </div>
+            <!--<input type="button" value="Close" class="closeButton" data-bind="click: buttonClick.bind($data, 5)" />-->
+        </div>
+        <div class="help-link">
+            <a href="mailto:support@gathercontent.com">Need help?</a>
+        </div>
+    </div>
+</div>
+
+<div data-bind="if: getMode(2)" class="gathercontent-import">
+    <div>
+        <div class="title_wrap">
+            <h2 class="title">Confirm update selection</h2>
+            <p>You're about to overwrite Sitecore content with new content from GatherContent. Please review your selection before updating your content.</p>
+        </div>
+
+        <div class="language">
+            Language
+            <select class="custom_select" style="width: 250px" data-bind="options: languages, optionsText: 'Name', optionsValue: 'IsoCode', value: language"></select>
+        </div>
+        <div class="location"></div>
+
+        <div class="update-confirm-grid" data-bind="koGrid: gridConfirmOptions"></div>
+
+        <div class="footer_btn">
+            <!--        <div>-->
+            <!--            <input type="checkbox" data-bind="checked: statusPostState" />-->
+            <!--            After successful import change status of item to [<select data-bind="options: statuses, optionsText: 'Name', optionsValue: 'Id', value: statusFilter, optionsAfterRender: $root.afterStatusesSelectRender"></select>] inside your GatherContent account-->
+            <!-- </div>-->
+            <div style="margin-bottom: 15px;">
+                <label><input type="checkbox" data-bind="checked: expandGatherContentLinks" /> Expand GatherContent Links</label>
+            </div>
+            <input type="button" value="<Back" class="backBtn" data-bind="click: buttonClick.bind($data, 1)" />
+            <input type="button" value="Update>" data-bind="click: buttonClick.bind($data, 3)" />
+            <!--<input type="button" class="closeButton" value="Close" data-bind="click: buttonClick.bind($data, 5)"/>-->
+        </div>
+
+        <div class="help-link">
+            <a href="mailto:support@gathercontent.com">Need help?</a>
+        </div>
+    </div>
+</div>
+
+<div data-bind="if: getMode(3)">
+    <div class="preloader_import text-center">
+        <h2 class="title">Update in progress</h2>
+        <p>Please do not close your browser. Depending on the number of items, this can take some time.</p>
+        <img src="../icons/sc-spinner32.gif" alt="">
+    </div>
+    <!--<input type="button" value="Next" data-bind="click: buttonClick.bind($data, 4)" />-->
+</div>
+
+<div data-bind="if: getMode(4)" class="gathercontent-import">
+    <div>
+        <h2 class="title">Update complete: Results.</h2>
+        <img src="../icons/Right.png" width="20" height="20">
+        <span data-bind="text: successImportedItemsCount()"></span> items were updated successfully.
+
+        <div data-bind="if: resultItems().length > 0">
+            <div data-bind="if: notUpdaredItemsCount() > 0" class="import-padding">
+                <img src="../icons/Warning (1).png" width="20" height="20"> <span data-bind="text: notUpdaredItemsCount()"></span> items were not updated. Check errors below.
+            </div>
+            <div data-bind="css:{
+    'info_footer' :  notUpdaredItemsCount() > 0
+ }">
+                <div class="update-result-grid" data-bind="koGrid: gridResultOptions"></div>
+            </div>
+            <div data-bind="if: notUpdaredItemsCount() > 0" class="import-padding">
+                <span class="red"> Template not mapped:</span> Please check template mapping.<br />
+                <span class="red">Template fields mismatch: </span> This could be because the template in GatherContent has changed and the changed template has not been updated on Sitecore.
+            </div>
+        </div>
+        <div class="footer_btn">
+            <input type="button" class="closeButton" data-bind="click: buttonClick.bind($data, 5)" value="Close" />
+        </div>
+
+        <div class="help-link">
+            <a href="mailto:support@gathercontent.com">Need help?</a>
+        </div>
+    </div>
+</div>
+
+<div data-bind="if: getMode(6)">
+    <h2 class="title"><span data-bind="text: errorText"></span></h2>
+    <div class="footer_btn">
+        <input type="button" class="closeButton" data-bind="click: buttonClick.bind($data, 5)" value="Close" />
+    </div>
+    <div class="help-link">
+        <a href="mailto:support@gathercontent.com">Need help?</a>
+    </div>
+</div>
+
+<div class="preloader"></div>

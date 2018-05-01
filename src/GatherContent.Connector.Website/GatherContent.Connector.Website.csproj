@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B99B2EC-225D-4373-A383-DD762684EDE4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GatherContent.Connector.Website</RootNamespace>
+    <AssemblyName>GatherContent.Connector.Website</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References 7.2\Sitecore\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL" Condition="'$(Configuration)'=='Release 8.1'">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>..\..\References\Sitecore\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL" Condition="'$(Configuration)'=='Release 8.0'">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>..\..\References 8.0\Sitecore\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL" Condition="'$(Configuration)'=='Debug 8.1'">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>..\..\References\Sitecore\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL" Condition="'$(Configuration)'=='Debug 8.0'">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>..\..\References 8.0\Sitecore\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL" Condition="'$(Configuration)'=='Debug 7'">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>..\..\References 7.2\Sitecore\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL" Condition="'$(Configuration)'=='Release 7'">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>..\..\References 7.2\Sitecore\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Unicorn, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unicorn.Core.3.2.0\lib\net45\Unicorn.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\DropTree.asmx" />
+    <Content Include="Services\Import.asmx" />
+    <Content Include="Services\Mappings.asmx" />
+    <Content Include="Services\Update.asmx" />
+    <Content Include="sitecore modules\Shell\GatherContent\AddTemplate\AddTemplate.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\css\bootstrap.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\css\bootstrap.min.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\js\bootstrap.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\js\bootstrap.min.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\js\npm.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\dynatree\icons-rtl.gif" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\dynatree\icons.gif" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\dynatree\loading.gif" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\dynatree\ui.dynatree.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\dynatree\vline-rtl.gif" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\dynatree\vline.gif" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\KoGrid.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\Experience Editor\8.0\GatherContentImport.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\Experience Editor\8.0\GatherContentMLImport.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\Experience Editor\GatherContentImport.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\Experience Editor\GatherContentMLImport.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\icons\delete.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\icons\Right.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\icons\sc-spinner32.gif" />
+    <Content Include="sitecore modules\Shell\GatherContent\icons\Warning %281%29.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\img\slide_arrow.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\Import\img\arrow_select.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\Import\img\bkt_left.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\Import\img\bkt_right.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\Import\MultiLocationImport.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\Import\MultiLocationImport.html" />
+    <Content Include="sitecore modules\Shell\GatherContent\js\jquery-ui.custom.min.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\js\jquery.cookie.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\js\jquery.dynatree.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\js\knockout-3.4.0.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\GatherContent.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\AddTemplate\AddTemplate.html" />
+    <Content Include="sitecore modules\Shell\GatherContent\js\GatherContent.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\js\jquery_2.1.1.min.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\js\koGrid-2.1.1.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\js\moment.min.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\Mappings\AddOrUpdateMapping.html" />
+    <Content Include="sitecore modules\Shell\GatherContent\Mappings\AddOrUpdateMapping.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\img\arrow.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\img\arrow_select.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\Mappings\Mappings.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\Mappings\Mappings.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\Import\Import.html" />
+    <Content Include="sitecore modules\Shell\GatherContent\img\arrow_select.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\img\bkt_left.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\img\bkt_right.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\TestConnection\testconnection.html" />
+    <Content Include="sitecore modules\Shell\GatherContent\TestConnection\testconnection.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\Update\img\arrow_select.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\Update\img\bkt_left.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\Update\img\bkt_right.png" />
+    <Content Include="sitecore modules\Shell\GatherContent\Update\Update.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\Update\Update.html" />
+    <Content Include="sitecore modules\Shell\GatherContent\Update\Update.js" />
+    <Content Include="sitecore modules\Shell\GatherContent\Import\Import.css" />
+    <Content Include="sitecore modules\Shell\GatherContent\Import\Import.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Commands\ExpandRichTextLinksCommand.cs" />
+    <Compile Include="Commands\MultipleLocationsImportCommand.cs" />
+    <Compile Include="Commands\ImportCommand.cs" />
+    <Compile Include="Commands\AddTemplateCommand.cs" />
+    <Compile Include="Commands\TestConnectionCommand.cs" />
+    <Compile Include="Commands\MappingsCommand.cs" />
+    <Compile Include="Commands\UpdateCommand.cs" />
+    <Compile Include="Events\GatherContentStatusChangeProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DropTree.asmx.cs">
+      <DependentUpon>DropTree.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Import.asmx.cs">
+      <DependentUpon>Import.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Mappings.asmx.cs">
+      <DependentUpon>Mappings.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Update.asmx.cs">
+      <DependentUpon>Update.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="sitecore modules\Shell\GatherContent\Mappings\Mappings.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Config\Include\GatherContent.Connector.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Config\Include\GatherContent.Connector.Repositories.config" />
+    <Content Include="App_Config\Include\Unicorn.Configs.GatherContent.Connector.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\css\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="sitecore modules\Shell\GatherContent\css\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GatherContent.Connector.Entities\GatherContent.Connector.Entities.csproj">
+      <Project>{a40787e3-7df6-41b9-90c0-41704aea2be3}</Project>
+      <Name>GatherContent.Connector.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GatherContent.Connector.GatherContentService\GatherContent.Connector.GatherContentService.csproj">
+      <Project>{42b1ccbc-1fc4-4601-9d53-63b69afab68d}</Project>
+      <Name>GatherContent.Connector.GatherContentService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GatherContent.Connector.Managers\GatherContent.Connector.Managers.csproj">
+      <Project>{06887722-f39a-4f95-81bc-653334bc7636}</Project>
+      <Name>GatherContent.Connector.Managers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GatherContent.Connector.WebControllers\GatherContent.Connector.WebControllers.csproj">
+      <Project>{59e5f602-4a8d-484c-8009-c6b01dad10cd}</Project>
+      <Name>GatherContent.Connector.WebControllers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Acc Publish.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 8.1|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;SC81</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 8.0|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;SC80</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 7|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;SC72</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 8.1|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SC81</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 8.0|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SC80</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 7|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SC72</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:31636/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

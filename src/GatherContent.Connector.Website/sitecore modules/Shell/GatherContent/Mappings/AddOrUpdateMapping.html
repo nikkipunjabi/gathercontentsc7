@@ -1,0 +1,108 @@
+﻿<script src="/sitecore modules/shell/GatherContent/js/jquery_2.1.1.min.js"></script>
+<script src="/sitecore/shell/Controls/Lib/Prototype/prototype.js"></script>
+<script src="/sitecore/shell/Controls/Gecko.js"></script>
+<!--<script src="/sitecore/shell/Controls/InternetExplorer.js"></script>-->
+<script src="/sitecore/shell/Controls/Sitecore.js"></script>
+<script src="/sitecore/shell/Controls/SitecoreWindowManager.js"></script>
+<script src="/sitecore modules/shell/GatherContent/js/knockout-3.4.0.js"></script>
+<script src="/sitecore modules/shell/GatherContent/js/GatherContent.js"></script>
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/js/jquery-ui.custom.min.js"></script>
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/js/jquery.cookie.js"></script>
+<script type="text/javascript" language="javascript" src="/sitecore modules/shell/GatherContent/js/jquery.dynatree.js"></script>
+<script src="/sitecore modules/shell/GatherContent/Mappings/AddOrUpdateMapping.js"></script>
+<link href="/sitecore modules/shell/GatherContent/Mappings/Mappings.css" rel="stylesheet" />
+
+
+<link href="/sitecore modules/shell/GatherContent/css/GatherContent.css" rel="stylesheet" />
+<link href="/sitecore modules/shell/GatherContent/css/dynatree/ui.dynatree.css" rel="stylesheet" />
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        var data = Init();
+        ko.applyBindings(new ViewModel(data));
+        tabInitSlide();
+        tabSlideFirst();
+    });
+
+</script>
+<script type="text/JavaScript" language="javascript">
+    if (!window.scSitecore) {
+        scSitecore = function () { };
+    }
+    scSitecore.prototype.Settings = {};
+    scSitecore.prototype.Settings.SessionTimeout = 1200000;
+</script>
+
+<div class="gathercontent-dialog footer_glued">
+    <div class="hide" data-bind="attr: { id: OpenerId }" style="position: absolute;top: 115px;width: 300px;height: 400px;z-index: 1000;">
+        <div style="width:300px;height:400px;">
+            <div data-bind="css: { class: OpenerId }"> </div>
+        </div>
+    </div>
+    <!-- ko if: IsError -->
+    <h1 data-bind="text: ErrorText"></h1>
+    <!-- /ko -->
+    <div data-bind="ifnot: IsError, click: closeDropTree" style="height: 80%;">
+        <p class="fields-mapping-padding">
+            Choose the fields you wish to map from GatherContent into Sitecore. Only map the fields you need to import.
+        </p>
+        <input type="text" data-bind="value: GcMappingTitle, css: { notvalid: NotValid() == true }" class="mapping-input block" placeholder="Mapping name *" />
+
+        <input class="mapping-input block" placeholder="Default location" data-bind="value: DefaultLocationTitle, attr: { 'data-openerid': OpenerId }, click: openDropTree" type="text" />
+
+
+        <div class="mapping_tabs_wrapper">
+
+            <div class="mapping_heading">
+                <div class="heading">
+                    <span>
+                        <strong>GatherContent:</strong>
+                    </span>
+                </div>
+                <select class="custom_selected sitecore-template-select" data-bind="options: GcProjects, optionsText: 'Name', value: SelectedGcProject, event:{ change: $root.gcProjectChanged}, css: { notvalid: NotValidGcProject() == true }, disable: IsEdit()"></select>
+                <select class="custom_selected sitecore-template-select" data-bind="options: GcTemplates, optionsText: 'Name', value: SelectedGcTemplate, event:{ change: $root.gcTemplateChanged}, css: { notvalid: NotValidGcTemplate() == true }, disable: IsEdit()"></select>
+
+                <!--<span data-bind="text: ValidationMessage" class="validation-message"></span>-->
+                <input data-bind="value: DefaultLocation, visible: false, attr: { 'data-openerid': OpenerId }, click: openDropTree" type="text" />
+            </div>
+            <div style="float: right;" class="mapping_heading">
+                <div class="heading"><span><strong>Sitecore:</strong></span></div>
+                <div class="clear">
+
+                </div>
+                <select class="custom_selected sitecore-template-select" data-bind="options: SitecoreTemplates, optionsText: 'SitrecoreTemplateName', value: SelectedScTemplate, event:{ change: $root.scTemplateChanged}, css: { notvalid: NotValidScTemplate() == true }, disable: IsEdit()"></select>
+            </div>
+
+            <div style="clear: both;"></div>
+            <div data-bind="foreach: { data: Tabs, as: 'tab' } " class="tabs_mapping">
+                <div data-bind="text: tab.TabName" class="title_mapping open"></div>
+                <div data-bind="foreach: { data: Fields, as: 'field' }" class="content_mapping">
+                    <div class="row_mapping_tab">
+                        <input type="text" data-bind="value: $root.returnFieldName($data)" disabled />
+                        <div class="arrow"></div>
+                        <select class="custom_selected" data-bind="options: $root.GetCurrentFields($data), optionsText: 'SitrecoreFieldName', optionsValue: 'SitecoreFieldId', value: SelectedScField"></select>
+
+                        <div data-bind="foreach: { data: $root.GetCmsFieldsAdditional($data), as: 'field1' }" style="display: block;">
+                            <input type="text" data-bind="value: field1" disabled style="color: #808080;border-color: #808080;float: right;clear: both;"  />
+                        </div>
+
+                        <a data-bind="visible: $root.GetCmsFieldMappingItemUrl($data), attr: { href: $root.GetCmsFieldMappingItemUrl($data)},click: function() { return true;}, clickBubble: false" target="_blank" style="color: #808080;float: right;clear: both;margin: -10px 0 15px 0px;display: block;width: calc(50% - 50px);">Add More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+        <div class="footer_btn">
+            <input class="mappings-btn" id="AddMore" type="button" value="Save mapping configuration" data-bind="click: saveMapping" style="margin-top: 15px;" />
+            <p>
+                You can always change your mapping later.
+            </p>
+        </div>
+
+        <div class="help-link">
+            <a href="mailto:support@gathercontent.com">Need help?</a>
+        </div>
+    </footer>
+</div>
+<div class="preloader"></div>

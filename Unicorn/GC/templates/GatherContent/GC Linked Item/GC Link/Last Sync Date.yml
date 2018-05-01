@@ -1,0 +1,21 @@
+﻿---
+ID: "f9d2ea57-86a2-45cf-9c28-8d8ca72a2669"
+Parent: "93f8b7e1-6720-4c3e-a729-5b9c2065df1b"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/GatherContent/GC Linked Item/GC Link/Last Sync Date
+DB: master
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: Datetime
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20151111T115544Z

@@ -1,0 +1,17 @@
+﻿---
+ID: "8c98156f-9791-4161-afa9-15ce9d9e66a9"
+Parent: "4ce8fb38-e9a7-45d5-b01b-192f709a25d7"
+Template: "5342d6d1-0acf-4fe6-9aa2-613edddbeed0"
+Path: /sitecore/system/Modules/GatherContent/Blogs AR/Mappings
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160325T142538Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin

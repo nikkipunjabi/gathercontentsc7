@@ -1,0 +1,26 @@
+﻿<script src="/sitecore modules/shell/GatherContent/js/jquery_2.1.1.min.js"></script>
+<script src="/sitecore/shell/Controls/Lib/Prototype/prototype.js"></script>
+<script src="/sitecore/shell/Controls/Browser.js"></script>
+<script src="/sitecore/shell/Controls/Sitecore.js"></script>
+<script src="/sitecore modules/shell/GatherContent/js/knockout-3.4.0.js"></script>
+<script src="/sitecore modules/shell/GatherContent/js/GatherContent.js"></script>
+<script src="/sitecore modules/shell/GatherContent/testconnection/testconnection.js"></script>
+<link href="/sitecore modules/shell/GatherContent/css/GatherContent.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        ko.applyBindings(new ViewModel());
+    });
+</script>
+<script type="text/JavaScript" language="javascript">
+    if (!window.scSitecore) {
+        scSitecore = function () { };
+    }
+    scSitecore.prototype.Settings = {};
+    scSitecore.prototype.Settings.SessionTimeout = 1200000;
+</script>
+
+<div class="gathercontent-dialog">
+    <div data-bind="if: Success"><h1 style="display: inline;padding: 15px;">Success</h1><img src="~/icon/Applications/32x32/check2.png"></div>
+    <div data-bind="if: !Success"><h1 style="display: inline;padding: 15px;">Fail</h1><img src="~/icon/Applications/32x32/delete2.png"></div>
+</div>

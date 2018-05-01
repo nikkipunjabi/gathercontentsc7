@@ -1,0 +1,32 @@
+﻿---
+ID: "6b2cd5c8-6eb9-4d60-a8f7-9e3f493fdac4"
+Parent: "99d6f32f-9601-4d68-9572-8d742089e986"
+Template: "f47bb0e8-b2bb-4415-9d34-77d99d85bf2a"
+Path: /sitecore/system/Modules/GatherContent/Blogs/Mappings/Blog post
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160325T142427Z
+    - ID: "317f365b-a80b-4e96-bdbb-80ce16525e3e"
+      Hint: Sitecore Template
+      Value: "{2BAD1CE3-DADB-4637-BE84-8C8A23A05D00}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
+    - ID: "b2df7a00-492d-447d-b32a-c631a8a9f745"
+      Hint: Last Updated in GC
+      Value: 1456488545
+    - ID: "d32682ec-380b-4473-b7ff-68560fae5a2e"
+      Hint: GC Template
+      Value: 281651
+    - ID: "decbcb4c-4748-4ec1-a1b8-1776de7079c6"
+      Hint: Template mapping title
+      Value: Blog EN
+    - ID: "e6518a14-3fd3-4eee-8b5b-69f77cae648f"
+      Hint: Last Mapped Date
+      Value: 20160725T123333

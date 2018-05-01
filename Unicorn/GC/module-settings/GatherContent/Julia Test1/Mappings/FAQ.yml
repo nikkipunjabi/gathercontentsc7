@@ -1,0 +1,32 @@
+﻿---
+ID: "8a9d738c-5699-4007-bf74-771550bb62e1"
+Parent: "d0a1a602-f63a-4ab1-8466-b8119774e498"
+Template: "f47bb0e8-b2bb-4415-9d34-77d99d85bf2a"
+Path: /sitecore/system/Modules/GatherContent/Julia Test1/Mappings/FAQ
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160314T131956Z
+    - ID: "317f365b-a80b-4e96-bdbb-80ce16525e3e"
+      Hint: Sitecore Template
+      Value: "{863B69E3-6C20-4A52-9DE7-C0284FC3DF20}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: sitecore\admin
+    - ID: "b2df7a00-492d-447d-b32a-c631a8a9f745"
+      Hint: Last Updated in GC
+      Value: 1450778349
+    - ID: "d32682ec-380b-4473-b7ff-68560fae5a2e"
+      Hint: GC Template
+      Value: 281855
+    - ID: "decbcb4c-4748-4ec1-a1b8-1776de7079c6"
+      Hint: Template mapping title
+      Value: 1
+    - ID: "e6518a14-3fd3-4eee-8b5b-69f77cae648f"
+      Hint: Last Mapped Date
+      Value: 20160314T162057
