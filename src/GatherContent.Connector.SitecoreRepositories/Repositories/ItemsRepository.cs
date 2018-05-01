@@ -263,7 +263,11 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
 									{
 										value = "1";
 									}
-									break;
+                                    else
+                                    {
+                                        value = "0";
+                                    }
+                                    break;
 								}
 							default:
 								value = StringUtil.RemoveTags(cmsField.Value.ToString()).Trim();
@@ -280,8 +284,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
 
 		private static string GeneralLinkExternal(string url, string description = "")
 		{
-			return string.Format("<link text=\"{0}\" linktype=\"external\" url=\"{1}\" anchor=\"\" target=\"\" />",
-				description, url);
+			return string.Format("<link linktype=\"external\" url=\"{1}\" anchor=\"\" target=\"\" />", url);
 		}
 
 		private static string GeneralLinkInternal(ID contentId, string description = "")

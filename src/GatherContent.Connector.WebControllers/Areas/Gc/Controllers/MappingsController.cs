@@ -33,7 +33,7 @@
         {
             return new Dictionary<string, string>
             {
-                {"text", "Single-Line Text, Multi-Line Text, Rich Text, Datetime, Date, General Link"},
+                {"text", "Single-Line Text, Multi-Line Text, Rich Text, Datetime, Date, General Link, Checkbox, Number"},
                 {"section", "Single-Line Text, Multi-Line Text, Rich Text"},
                 {"choice_radio", "Droptree, Checklist, Multilist, Multilist with Search, Treelist, TreelistEx"},
                 {"choice_checkbox", "Checklist, Multilist, Multilist with Search, Treelist, TreelistEx"},
