@@ -79,6 +79,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
 
                 if (memoryStream.Length > 0)
                 {
+                    altText = ItemUtil.ProposeValidItemName(altText);
                     var media = CreateMedia(targetPath, fileInfo, extension, memoryStream, altText);
                     return media;
                 }
@@ -158,10 +159,15 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                     KeepExisting = true,
                     Versioned = false,
                     Destination = string.Concat(rootPath, "/", validItemName),
-                    AlternateText = altText
                 };
 
                 var previewImgItem = MediaManager.Creator.CreateFromStream(mediaStream, validItemName + "." + extension, mediaOptions);
+                //mediaOptions.AlternateText -- This is not working on the PROD.
+                //So forciing ALT Update using below code --- This works on the PROD.
+                //Update ALT Text
+                previewImgItem.Editing.BeginEdit();
+                previewImgItem["Alt"] = altText;
+                previewImgItem.Editing.EndEdit();
                 return previewImgItem;
             }
         }

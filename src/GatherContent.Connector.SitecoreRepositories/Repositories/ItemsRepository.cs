@@ -311,22 +311,6 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                 return;
             }
 
-            //Alt Text
-            string altText = "";
-            if (string.Equals(item.Template.TemplateName.ToLower(), "deal"))
-            {
-                altText = item.Title;
-            }
-            else if (string.Equals(item.Template.TemplateName.ToLower(), "event"))
-            {
-                altText = item.Title;
-            }
-            else
-            {
-                //POI
-                altText = item.Title;
-            }
-
             using (new SecurityDisabler())
             {
                 using (new LanguageSwitcher(item.Language))
@@ -342,7 +326,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                             if (file != null)
                             {
                                 // var media = UploadFile(path, file);
-                                Item media = _mediaRepository.UploadFile(path, file, altText);
+                                Item media = _mediaRepository.UploadFile(path, file, item.Title);
                                 if (media != null)
                                 {
                                     value += media.ID + "|";
@@ -405,22 +389,6 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                 return;
             }
 
-            //Alt Text
-            string altText = "";
-            if (string.Equals(item.Template.TemplateName.ToLower(), "deal"))
-            {
-                altText = item.Title;
-            }
-            else if (string.Equals(item.Template.TemplateName.ToLower(), "event"))
-            {
-                altText = item.Title;
-            }
-            else
-            {
-                //POI
-                altText = item.Title;
-            }
-
             using (new SecurityDisabler())
             {
                 using (new LanguageSwitcher(item.Language))
@@ -432,7 +400,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                         {
                             // var media = UploadFile(path, file);
                             var path = _mediaRepository.ResolveMediaPath(item, createdItem, cmsField);
-                            Item media = _mediaRepository.UploadFile(path, file, altText);
+                            Item media = _mediaRepository.UploadFile(path, file, item.Title);
 
 
                             var mediaUrl = MediaManager.GetMediaUrl(media, new MediaUrlOptions { UseItemPath = false, AbsolutePath = false });
@@ -457,22 +425,6 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                 return;
             }
 
-            //Alt Text
-            string altText = "";
-            if (string.Equals(item.Template.TemplateName.ToLower(), "deal"))
-            {
-                altText = item.Title;
-            }
-            else if (string.Equals(item.Template.TemplateName.ToLower(), "event"))
-            {
-                altText = item.Title;
-            }
-            else
-            {
-                //POI
-                altText = item.Title;
-            }
-
             using (new SecurityDisabler())
             {
                 using (new LanguageSwitcher(item.Language))
@@ -483,7 +435,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                         if (file != null)
                         {
                             var path = _mediaRepository.ResolveMediaPath(item, createdItem, cmsField);
-                            Item media = _mediaRepository.UploadFile(path, file, altText);
+                            Item media = _mediaRepository.UploadFile(path, file, item.Title);
 
 
                             var value = string.Format("<image mediaid=\"{0}\"  />", media.ID);
@@ -517,22 +469,6 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
             }
             var path = _mediaRepository.ResolveMediaPath(item, createdItem, cmsField);
 
-            //Alt Text
-            string altText = "";
-            if (string.Equals(item.Template.TemplateName.ToLower(), "deal"))
-            {
-                altText = item.Title;
-            }
-            else if (string.Equals(item.Template.TemplateName.ToLower(), "event"))
-            {
-                altText = item.Title;
-            }
-            else
-            {
-                //POI
-                altText = item.Title;
-            }
-
             using (new SecurityDisabler())
             {
                 using (new LanguageSwitcher(item.Language))
@@ -542,7 +478,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                         var file = cmsField.Files.FirstOrDefault();
                         if (file != null)
                         {
-                            Item media = _mediaRepository.UploadFile(path, file, altText);
+                            Item media = _mediaRepository.UploadFile(path, file, item.Title);
 
                             createdItem.Editing.BeginEdit();
                             createdItem[cmsField.TemplateField.FieldName] = media.ID.ToString();
