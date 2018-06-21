@@ -252,7 +252,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                                 break;
                             case "General Link":
                                 {
-                                    value = GeneralLinkExternal(StringUtil.RemoveTags(cmsField.Value.ToString()).Trim());
+                                    value = GeneralLinkExternal(StringUtil.RemoveTags(cmsField.Value.ToString().Replace("\u200B", "")).Trim());
                                     break;
                                 }
                             case "Checkbox":
@@ -267,6 +267,11 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                                     {
                                         value = "0";
                                     }
+                                    break;
+                                }
+                            case "Number":
+                                {
+                                    value = cmsField.Value.ToString().Replace("\u200B", "");
                                     break;
                                 }
                             default:
@@ -284,6 +289,10 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
 
         private static string GeneralLinkExternal(string url, string description = "")
         {
+            if (string.IsNullOrWhiteSpace(url))
+            {
+                return string.Empty;
+            }
             return string.Format("<link linktype=\"external\" url=\"{0}\" anchor=\"\" target=\"\" />", url);
         }
 
