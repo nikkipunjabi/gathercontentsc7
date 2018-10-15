@@ -258,7 +258,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                             case "Checkbox":
                                 {
                                     value = string.Empty;
-                                    var val = StringUtil.RemoveTags(cmsField.Value.ToString()).Trim();
+                                    var val = StringUtil.RemoveTags(cmsField.Value.ToString().Replace("\u200B", "")).Trim();
                                     if (val == "1")
                                     {
                                         value = "1";
@@ -279,7 +279,10 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                                 break;
                         }
                     }
-
+                    if (cmsField.TemplateField.FieldType == "Multi-Line Text" || cmsField.TemplateField.FieldType == "Rich Text")
+                    {
+                        value = value.Replace("    ", String.Empty);
+                    }
                     createdItem[cmsField.TemplateField.FieldName] = value;
 
                     createdItem.Editing.EndEdit();
