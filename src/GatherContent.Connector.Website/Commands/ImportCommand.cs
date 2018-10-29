@@ -60,21 +60,7 @@ namespace GatherContent.Connector.Website.Commands
             var uri = "/sitecore modules/shell/gathercontent/import/import.html";
             var path = string.Format("{0}?id={1}&l={2}&v={3}&t={4}&db={5}", uri, id, language, version, title, db);
 
-#if SC72
             Context.ClientPage.ClientResponse.Broadcast(Context.ClientPage.ClientResponse.ShowModalDialog(path, "1200", "700", "Import Content from GatherContent", false), "Shell");
-#else
-            var options = new ModalDialogOptions(path)
-            {
-                Width = "1200",
-                Height = "700",
-                MinWidth = "881",
-                MinHeight = "400",
-                Maximizable = false,
-                Header = "Import Content from GatherContent"
-            };
-
-            Context.ClientPage.ClientResponse.Broadcast(Context.ClientPage.ClientResponse.ShowModalDialog(options), "Shell");
-#endif
 
 
         }

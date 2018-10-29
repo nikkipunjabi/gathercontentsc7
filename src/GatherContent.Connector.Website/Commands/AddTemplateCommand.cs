@@ -47,21 +47,8 @@ namespace GatherContent.Connector.Website.Commands
             var uri = "/sitecore modules/shell/gathercontent/AddTemplate/AddTemplate.html";
             var path = string.Format("{0}&id={1}&l={2}&v={3}", uri, id, language, version);
 
-#if SC72
-            Context.ClientPage.ClientResponse.Broadcast(Context.ClientPage.ClientResponse.ShowModalDialog(path, "800", "495","Add template", true), "Shell");
-#else
-            var options = new ModalDialogOptions(path)
-            {
-                Width = "800",
-                Height = "495",
-                MinWidth = "600",
-                MinHeight = "495",
-                Maximizable = false,
-                Header = "Add template"
-            };
 
-            Context.ClientPage.ClientResponse.Broadcast(Context.ClientPage.ClientResponse.ShowModalDialog(options), "Shell");
-#endif
+            Context.ClientPage.ClientResponse.Broadcast(Context.ClientPage.ClientResponse.ShowModalDialog(path, "800", "495","Add template", true), "Shell");
         }
     }
 }

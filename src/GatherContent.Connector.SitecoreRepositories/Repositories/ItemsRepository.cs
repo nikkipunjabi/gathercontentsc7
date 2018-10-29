@@ -274,6 +274,16 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
                                     value = cmsField.Value.ToString().Replace("\u200B", "");
                                     break;
                                 }
+                            case "Integer":
+                                {
+                                    string checkValue = cmsField.Value.ToString().Replace("\u200B", "");
+                                    int isConvertedProperly = 0;
+                                    if(int.TryParse(checkValue, out isConvertedProperly))
+                                    {
+                                        value = checkValue;
+                                    }
+                                    break;
+                                }
                             default:
                                 value = StringUtil.RemoveTags(cmsField.Value.ToString()).Trim();
                                 break;

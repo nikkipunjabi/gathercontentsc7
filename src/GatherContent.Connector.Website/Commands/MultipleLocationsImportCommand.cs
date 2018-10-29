@@ -57,21 +57,8 @@ namespace GatherContent.Connector.Website.Commands
             var uri = "/sitecore modules/shell/gathercontent/import/MultiLocationImport.html";
             var path = string.Format("{0}?id={1}&l={2}&v={3}&db={4}", uri, id, language, version, db);
 
-#if SC72
             Context.ClientPage.ClientResponse.Broadcast(Context.ClientPage.ClientResponse.ShowModalDialog(path, "1200", "700", "Import Content from GatherContent", false), "Shell");
-#else
-            var options = new ModalDialogOptions(path)
-            {
-                Width = "1200",
-                Height = "700",
-                MinWidth = "881",
-                MinHeight = "400",
-                Maximizable = false,
-                Header = "Import Content from GatherContent"
-            };
 
-            Context.ClientPage.ClientResponse.Broadcast(Context.ClientPage.ClientResponse.ShowModalDialog(options), "Shell");
-#endif
         }
     }
 }
