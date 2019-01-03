@@ -309,7 +309,7 @@ namespace GatherContent.Connector.Managers.Managers
 														{
 															ItemsRepository.ResolveAttachmentMapping(cmsItem, fieldMappingsAdditional);
 														}
-													}
+                                                    }
 													break;
 												default:
 													{
@@ -341,8 +341,16 @@ namespace GatherContent.Connector.Managers.Managers
 											}
 										}
 									}
-									//set CMS link after we got out CMS Id
-									var cmsLink = ItemsRepository.GetCmsItemLink(HttpContext.Current.Request.Url.Scheme, HttpContext.Current.Request.Url.Host, cmsItem.Id);
+
+                                    //Publish Parent Image Folder with SubItems?
+
+                                    string parentMediaFolder = SimpleMediaRepository.publishParentMediaFolder;
+                                    ItemsRepository.PublishItems(parentMediaFolder, isMediaFolder:true);
+                                    ItemsRepository.PublishItems(cmsItem.Id, isContentItem: true);
+
+
+                                    //set CMS link after we got out CMS Id
+                                    var cmsLink = ItemsRepository.GetCmsItemLink(HttpContext.Current.Request.Url.Scheme, HttpContext.Current.Request.Url.Host, cmsItem.Id);
 									itemResponseModel.CmsLink = cmsLink;
 									itemResponseModel.CmsId = cmsItem.Id;
 

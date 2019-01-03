@@ -14,6 +14,7 @@ using GatherContent.Connector.Managers.Models.ImportItems.New;
 using GatherContent.Connector.Managers.Models.Mapping;
 using GatherContent.Connector.Managers.Models.UpdateItems;
 using GatherContent.Connector.Managers.Models.UpdateItems.New;
+using GatherContent.Connector.SitecoreRepositories.Repositories;
 using Constants = GatherContent.Connector.SitecoreRepositories.Repositories.Constants;
 
 namespace GatherContent.Connector.Managers.Managers
@@ -499,7 +500,13 @@ namespace GatherContent.Connector.Managers.Managers
 							}
 						}
 
-						var cmsSyncDateField = new CmsField
+                        //Publish Parent Image Folder with SubItems?
+
+                        string parentMediaFolder = SimpleMediaRepository.publishParentMediaFolder;
+                        ItemsRepository.PublishItems(parentMediaFolder, isMediaFolder: true);
+                        ItemsRepository.PublishItems(cmsItem.Id, isContentItem: true);
+
+                        var cmsSyncDateField = new CmsField
 						{
 							TemplateField = new CmsTemplateField { FieldName = "Last Sync Date" },
 							Value = DateTime.UtcNow.ToString("yyyyMMddTHHmmss")

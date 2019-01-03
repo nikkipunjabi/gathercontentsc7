@@ -19,6 +19,8 @@ using GatherContent.Connector.IRepositories.Models.Import;
 using GatherContent.Connector.IRepositories.Interfaces;
 using Sitecore.ContentSearch.Utilities;
 using Sitecore.Web.UI.HtmlControls.Data;
+using System.Collections;
+using Sitecore.Publishing;
 
 namespace GatherContent.Connector.SitecoreRepositories.Repositories
 {
@@ -808,6 +810,113 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
             Regex rgx = new Regex(pattern + "(\\d+)");
 
             ExpandLinksInTextRecursive(root, rgx, pattern, includeDescendants);
+        }
+
+        public void PublishItems(string parentID, bool isMediaFolder = false, bool isContentItem = false)
+        {
+            if (!string.IsNullOrWhiteSpace(parentID))
+            {
+                var db = Factory.GetDatabase("master");
+                var parentItem = db.GetItem(parentID);
+                if (parentItem != null)
+                {
+                    var settingsItem = GetItem("{1ED79DC0-D783-44E5-A0B4-55056215B11A}");
+                    if (settingsItem != null && isMediaFolder)
+                    {
+                        Sitecore.Data.Fields.CheckboxField assignCheckbox = settingsItem.Fields["Publish Media Item on Import"];
+                        if (assignCheckbox != null && assignCheckbox.Checked)
+                        {
+                            //Publish Targets for Media Folder?
+
+                            string publishingTargets = settingsItem["Media Publishing Target DBs"];
+
+                            if (!string.IsNullOrWhiteSpace(publishingTargets))
+                            {
+                                PublishItemsToTargetDBs(db, parentItem, publishingTargets);
+                            }
+                        }
+                    }
+                    else if(settingsItem != null && isContentItem)
+                    {
+                        Sitecore.Data.Fields.CheckboxField assignCheckbox = settingsItem.Fields["Publish Content Item on Import"];
+                        if (assignCheckbox != null && assignCheckbox.Checked)
+                        {
+                            //Publish Targets for Media Folder?
+
+                            string publishingTargets = settingsItem["Content Item Publishing Target DBs"];
+
+                            if (!string.IsNullOrWhiteSpace(publishingTargets))
+                            {
+                                PublishItemsToTargetDBs(db, parentItem, publishingTargets);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void PublishItemsToTargetDBs(Database db, Item parentMediaFolder, string publishingTargets)
+        {
+            var givenTargets = publishingTargets.Split('|');
+            Database[] targets = this.GetTargets(db, givenTargets);
+
+            Language[] language = new Language[] { parentMediaFolder.Language };
+
+            bool isdeep = true;
+
+            if (targets.Length > 0)
+            {
+                string targetdbs = string.Empty;
+                foreach (var targe in targets)
+                {
+                    targetdbs = targetdbs + targe + " ";
+                }
+                Log.Info("GatherContent - Auto Publish: " + parentMediaFolder.Paths.FullPath + " Target Database: " + targetdbs, this);
+                PublishManager.PublishItem(parentMediaFolder, targets, language, isdeep, false);
+            }
+            else
+            {
+                Log.Info("GatherContent - Auto Publish -- No Target Database found!", this);
+            }
+        }
+
+        private Database[] GetTargets(Database db, string[] givenTargets)
+        {
+            Database[] array;
+            using (SecurityDisabler securityDisabler = new SecurityDisabler())
+            {
+                Item item1 = db.Items["/sitecore/system/publishing targets"];
+                if (item1 == null)
+                {
+                    return new Database[0];
+                }
+                else
+                {
+                    ArrayList arrayLists = new ArrayList();
+                    foreach (Item child in item1.Children)
+                    {
+                        string str = child["Target database"];
+                        if (str.Length <= 0)
+                        {
+                            continue;
+                        }
+                        Database database = Factory.GetDatabase(str, false);
+                        if (database == null)
+                        {
+                            Log.Warn(string.Concat("Custom Workflow Unknown database in PublishAction: ", str), this);
+                        }
+                        else
+                        {
+                            if (givenTargets.Contains(str))
+                            {
+                                arrayLists.Add(database);
+                            }
+                        }
+                    }
+                    array = arrayLists.ToArray(typeof(Database)) as Database[];
+                }
+            }
+            return array;
         }
 
         private void ExpandLinksInTextRecursive(Item rootItem, Regex rgx, string pattern, bool includeDescendants)

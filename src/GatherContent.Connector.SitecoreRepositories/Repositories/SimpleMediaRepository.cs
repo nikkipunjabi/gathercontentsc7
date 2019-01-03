@@ -22,6 +22,8 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
 
         protected readonly string EventsFolderRoot;
 
+        public static string publishParentMediaFolder { get; set; }
+
         public SimpleMediaRepository()
         {
             var path = Sitecore.Configuration.Settings.GetSetting("GatherContent.MediaLibrary.MainFolder");
@@ -104,6 +106,8 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
 
             if (string.Equals(item.Template.TemplateName.ToLower(), "deal"))
             {
+                publishParentMediaFolder = string.Format(DealsFolderRoot + "/{0}/", ItemUtil.ProposeValidItemName(item.Title));
+
                 path = string.IsNullOrEmpty(cmsField.TemplateField.FieldName)
                     ? string.Format(DealsFolderRoot + "/{0}/", ItemUtil.ProposeValidItemName(item.Title))
                     : string.Format(DealsFolderRoot + "/{0}/{1}/", ItemUtil.ProposeValidItemName(item.Title), ItemUtil.ProposeValidItemName(cmsField.TemplateField.FieldName));
@@ -112,6 +116,8 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
             }
             else if (string.Equals(item.Template.TemplateName.ToLower(), "event"))
             {
+                publishParentMediaFolder = string.Format(EventsFolderRoot + "/{0}/", ItemUtil.ProposeValidItemName(item.Title));
+
                 path = string.IsNullOrEmpty(cmsField.TemplateField.FieldName)
                     ? string.Format(EventsFolderRoot + "/{0}/", ItemUtil.ProposeValidItemName(item.Title))
                     : string.Format(EventsFolderRoot + "/{0}/{1}/", ItemUtil.ProposeValidItemName(item.Title), ItemUtil.ProposeValidItemName(cmsField.TemplateField.FieldName));
@@ -120,6 +126,7 @@ namespace GatherContent.Connector.SitecoreRepositories.Repositories
             }
             else
             {
+                publishParentMediaFolder = string.Format(MediaFolderRoot + "/{0}/", ItemUtil.ProposeValidItemName(item.Title));
 
                 path = string.IsNullOrEmpty(cmsField.TemplateField.FieldName)
                     ? string.Format(MediaFolderRoot + "/{0}/", ItemUtil.ProposeValidItemName(item.Title))

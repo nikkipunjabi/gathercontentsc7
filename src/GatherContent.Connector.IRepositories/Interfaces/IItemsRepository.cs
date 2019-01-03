@@ -45,6 +45,8 @@ namespace GatherContent.Connector.IRepositories.Interfaces
 
 		string GetItemId(string parentId, CmsItem cmsItem);
 
+        void PublishItems(string parentID, bool isMediaFolder = false, bool isContentItem = false);
+
         /// <summary>
         /// Gets the linked item URL in RTE format '~/link.aspx?_id=GUID&amp;_z=z'.
         /// </summary>
